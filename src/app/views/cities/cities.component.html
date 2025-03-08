@@ -1,0 +1,33 @@
+<div class="container mx-auto">
+  <h2 class="text-xl font-bold text-center mb-4">City List</h2>
+
+  <div class="overflow-x-auto">
+    <table
+      class="min-w-full bg-white border border-gray-300 shadow-md rounded-lg"
+    >
+      <thead class="bg-gray-200">
+        <tr>
+          <th class="py-2 px-4 border-b">City ID</th>
+          <th class="py-2 px-4 border-b">City Name</th>
+          <th class="py-2 px-4 border-b">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="hover:bg-gray-100" *ngFor="let city of cities">
+          <td class="py-2 px-4 border-b text-center">{{ city.cityId }}</td>
+          <td class="py-2 px-4 border-b font-semibold text-center">
+            {{ city.cityName | uppercase }}
+          </td>
+          <td class="py-2 px-4 border-b text-center">
+            <button
+              class="bg-blue-500 text-white px-4 py-1 rounded-md hover:bg-blue-600"
+              (click)="viewRecipes(city.cityId)"
+            >
+              View Recipe
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

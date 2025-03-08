@@ -1,0 +1,82 @@
+<div class="w-full max-w-3xl bg-white p-6 rounded-lg shadow-md">
+  <h2 class="text-xl font-semibold mb-4">Add Recipe</h2>
+  <form
+    method="post"
+    action="/create"
+    #recipeform="ngForm"
+    (ngSubmit)="createRecipe(recipeform.value)"
+    class="space-y-4"
+  >
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <select
+        name="cityName"
+        class="p-2 border rounded w-full outline-none"
+        required
+        ngModel
+      >
+        <option value="">Select City</option>
+        <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
+      </select>
+      <select
+        name="categoryName"
+        class="p-2 border rounded w-full outline-none"
+        required
+        ngModel
+      >
+        <option value="">Select Category</option>
+        <option *ngFor="let category of categories" [value]="category">
+          {{ category }}
+        </option>
+      </select>
+    </div>
+
+    <input
+      type="text"
+      placeholder="Recipe Name"
+      name="recipeName"
+      ngModel
+      class="p-2 border rounded w-full mt-4 outline-none focus:ring-2 focus:ring-blue-400 focus:outline-none"
+      required
+    />
+    <textarea
+      placeholder="Ingredients"
+      class="p-2 border rounded w-full mt-4 outline-none focus:outline-none focus:ring-2 focus:ring-blue-400"
+      name="ingredients"
+      ngModel
+      required
+    ></textarea>
+    <textarea
+      placeholder="Making Process"
+      name="makingProcess"
+      ngModel
+      class="p-2 border rounded w-full mt-4 outline-none focus:outline-none focus:ring-2 focus:ring-blue-400"
+      required
+    ></textarea>
+
+    <div id="image-upload-container" class="mt-4">
+      <div>
+        <div
+          *ngFor="let imageField of imageFields; let i = index"
+          class="p-2 rounded w-full"
+        >
+          <input type="file" class="p-2 border rounded w-full" />
+        </div>
+        <button
+          type="button"
+          id="add-image"
+          class="px-4 py-2 mt-4 bg-blue-500 text-white rounded"
+          (click)="addImageFields()"
+        >
+          Add
+        </button>
+      </div>
+    </div>
+
+    <button
+      type="submit"
+      class="w-full bg-green-500 text-white p-2 rounded mt-4"
+    >
+      Submit
+    </button>
+  </form>
+</div>

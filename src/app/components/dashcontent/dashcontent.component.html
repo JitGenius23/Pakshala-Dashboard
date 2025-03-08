@@ -1,0 +1,11 @@
+<div id="cards" class="flex flex-wrap">
+  <div
+    *ngFor="let card of cards"
+    class="rounded m-10 p-4 w-40 h-25 bg-white shadow-slate-900 shadow-md content-center hover:cursor-pointer"
+  >
+    <div class="card items-center text-center" (click)="card.click ? card.click() : null">
+      <h2 class="mb-5">{{ card.name | uppercase }}</h2>
+      <p class="font-bold text-2xl">{{ card.value }}</p>
+    </div>
+  </div>
+</div>

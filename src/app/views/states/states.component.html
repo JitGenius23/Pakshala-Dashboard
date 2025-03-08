@@ -1,0 +1,32 @@
+<div class="container mx-auto">
+  <h2 class="text-xl font-bold text-center mb-4">State List</h2>
+
+  <div class="overflow-x-auto">
+    <table
+      class="min-w-full bg-white border border-gray-300 shadow-md rounded-lg"
+    >
+      <thead class="bg-gray-200">
+        <tr>
+          <th class="py-2 px-4 border-b">State ID</th>
+          <th class="py-2 px-4 border-b">State Name</th>
+          <th class="py-2 px-4 border-b">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="hover:bg-gray-100" *ngFor="let state of states" >
+          <td class="py-2 px-4 border-b text-center">{{state.stateId}}</td>
+          <td class="py-2 px-4 border-b font-semibold text-center">{{state.stateName | uppercase}}
+          </td>
+          <td class="py-2 px-4 border-b text-center">
+            <button
+              class="bg-blue-500 text-white px-4 py-1 rounded-md hover:bg-blue-600"
+              (click)="viewCities()"
+            >
+              View Cities
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

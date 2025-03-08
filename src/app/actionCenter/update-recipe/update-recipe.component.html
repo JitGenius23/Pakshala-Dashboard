@@ -1,0 +1,38 @@
+<div class="w-full max-w-3xl bg-white p-6 rounded-lg shadow-md">
+  <h2 class="text-xl font-semibold mb-4">Update Recipe</h2>
+  <form
+    method="post"
+    action="'/update/' + recipeDetails._id"
+    #recipeUpdateForm="ngForm"
+    (ngSubmit)="updateRecipe(recipeUpdateForm.value, recipeDetails._id)"
+    class="space-y-4"
+    *ngIf="recipeDetails"
+  >
+    <input
+      type="text"
+      [(ngModel)]="recipeDetails.recipeName"
+      name="recipeName"
+      ngModel
+      class="p-2 border rounded w-full mt-4 outline-none"
+    />
+    <textarea
+      [(ngModel)]="recipeDetails.ingredients"
+      class="p-2 border rounded w-full mt-4 outline-none"
+      name="ingredients"
+      ngModel
+    ></textarea>
+    <textarea
+      [(ngModel)]="recipeDetails.makingProcess"
+      name="makingProcess"
+      ngModel
+      class="p-2 border rounded w-full mt-4 outline-none"
+    ></textarea>
+
+    <button
+      type="submit"
+      class="w-full bg-green-500 text-white p-2 rounded mt-4"
+    >
+      Save Changes
+    </button>
+  </form>
+</div>

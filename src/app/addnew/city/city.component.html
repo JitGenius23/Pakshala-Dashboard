@@ -1,0 +1,45 @@
+<div class="flex justify-center bg-gray-100">
+    <div class="w-full max-w-md bg-white p-6 rounded-lg shadow-lg">
+      <h2 class="text-xl font-semibold text-center text-gray-800 mb-4">
+        Create a New City
+      </h2>
+  
+      <form method="post" action="/create" #stateform="ngForm" (ngSubmit)="createState(stateform.value)" class="space-y-4">
+        <!-- Country Dropdown -->
+        <div>
+          <label class="block text-gray-700 font-medium">Select State</label>
+          <select
+            name="stateName"
+            required
+            ngModel
+            class="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+          >
+            <option value="" disabled>Select State</option>
+            <option *ngFor="let state of states" [value]="state">{{state}}</option>
+          </select>
+        </div>
+  
+        <!-- State Input -->
+        <div>
+          <label class="block text-gray-700 font-medium">City Name</label>
+          <input
+            type="text"
+            name="cityName"
+            ngModel
+            required
+            placeholder="Enter City name"
+            class="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+          />
+        </div>
+  
+        <!-- Create Button -->
+        <button
+          type="submit"
+          class="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-md font-semibold"
+        >
+          Create State
+        </button>
+      </form>
+    </div>
+  </div>
+  

@@ -3,12 +3,24 @@
     class="w-full max-w-3xl bg-white p-6 rounded-lg shadow-md"
     *ngIf="recipeDetails"
   >
-    <h2 class="text-xl font-semibold mb-4">{{ recipeDetails.recipeName | uppercase }}</h2>
+    <h2 class="text-xl font-semibold mb-4">
+      {{ recipeDetails.recipeName | uppercase }}
+    </h2>
     <p>Ingredients: {{ recipeDetails.ingredients }}</p>
     <p>Making Process: {{ recipeDetails.makingProcess }}</p>
   </div>
   <div>
-    <button class="m-4 bg-green-500 px-3 py-2 rounded font-medium" (click)="updateRecipe()">update</button>
-    <button class="m-4 bg-red-500 text-zinc-50 px-3 py-2 rounded font-medium" (click)="deleteRecipe()">Delete</button>
+    <button
+      class="m-4 bg-green-500 px-3 py-2 rounded font-medium"
+      (click)="updateRecipe()"
+    >
+      update
+    </button>
+    <button
+      class="m-4 bg-red-500 text-zinc-50 px-3 py-2 rounded font-medium"
+      (click)="deleteRecipe()"
+    >
+      Delete
+    </button>
   </div>
 </div>

@@ -111,6 +111,13 @@ export const routes: Routes = [
             (m) => m.UpdateRecipeComponent
           ),
       },
+      {
+        path: 'cityRecipes/:id',
+        loadComponent: () =>
+          import('./views/city-recipes/city-recipes.component').then(
+            (m) => m.CityRecipesComponent
+          ),
+      },
     ],
   },
 ];

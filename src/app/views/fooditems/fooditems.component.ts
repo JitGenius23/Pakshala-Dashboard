@@ -22,24 +22,19 @@ export class FooditemsComponent {
   ) {}
 
   ngOnInit(): void {
-    this.Recipes = this.getRecipeService.getRecipes();
-    if (this.Recipes.length === 0) {
-      this.getRecipeService.getAllRecipes().subscribe((res: any) => {
-        res.forEach((recipe: any) => {
-          this.Recipes.push({
-            recipeId: recipe._id,
-            recipeName: recipe.recipeName,
-          });
+    this.getRecipeService.getAllRecipes().subscribe((res: any) => {
+      res.forEach((recipe: any) => {
+        this.Recipes.push({
+          recipeId: recipe._id,
+          recipeName: recipe.recipeName,
+          categoryId: recipe.categoryName,
+          cityId: recipe.city,
         });
-        this.Recipes = this.Recipes.reverse();
       });
-    }
+      this.Recipes = this.Recipes.reverse();
+    });
   }
-
-  viewRecipeDetails(recipeId: any) {
-    this.getRecipeService
-      .viewRecipeDetails(recipeId)
-      .subscribe((res: any) => {});
-    this.router.navigate([`/recipeDetails/${recipeId}`]);
+  viewRecipeDetails(recipeId: any, categoryId: any, cityId: any) {
+    this.router.navigate([`/recipeDetails/${recipeId}`, { categoryId, cityId }]);
   }
 }

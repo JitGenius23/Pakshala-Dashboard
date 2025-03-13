@@ -22,6 +22,8 @@ export class RecipeDetailsComponent {
 
   recipeId: string | null = null;
   recipeDetails: any = {};
+  categoryId: any;
+  cityId: any;
 
   ngOnInit() {
     // Get recipeId from the route parameters
@@ -38,11 +40,13 @@ export class RecipeDetailsComponent {
   updateRecipe() {
     this.router.navigate([`/updateRecipe/${this.recipeId}`]);
   }
-
+  
   deleteRecipe() {
+    this.categoryId = this.route.snapshot.paramMap.get('categoryId');
+    this.cityId = this.route.snapshot.paramMap.get('cityId');
     if (confirm('Are you sure you want to delete this recipe?') === true) {
       this.http
-        .delete(`http://localhost:3000/recipe/delete/${this.recipeId}`)
+        .delete(`http://localhost:3000/recipe/delete/${this.recipeId}/${this.categoryId}/${this.cityId}`)
         .subscribe(() => {});
       this.router.navigate(['/viewFoodItems']);
     }

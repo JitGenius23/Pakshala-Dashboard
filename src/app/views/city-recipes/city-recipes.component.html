@@ -1,5 +1,5 @@
 <div class="container mx-auto">
-  <h2 class="text-xl font-bold text-center mb-4">Recipe List</h2>
+  <h2 class="text-xl font-bold text-center mb-4">{{cityName | titlecase}} Recipes</h2>
 
   <div class="overflow-x-auto">
     <table
@@ -14,15 +14,15 @@
       </thead>
       <tbody>
         <tr class="hover:bg-gray-100" *ngFor="let recipe of Recipes">
-          <td class="py-2 px-4 border-b text-center">{{recipe.recipeId}}</td>
+          <td class="py-2 px-4 border-b text-center">{{ recipe.recipeId }}</td>
           <td class="py-2 px-4 border-b font-semibold text-center">
-            {{recipe.recipeName | uppercase}}
+            {{ recipe.recipeName | uppercase }}
           </td>
           <td class="py-2 px-4 border-b text-center">
             <button
               class="bg-blue-500 text-white px-4 py-1 rounded-md hover:bg-blue-600"
-              (click)="viewRecipeDetails(recipe.recipeId, recipe.categoryId, recipe.cityId)"
-              >
+              (click)="viewRecipeDetails(recipe.recipeId)"
+            >
               view
             </button>
           </td>
